@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cross Country Timer</title>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <link rel="stylesheet" href="timer.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
+        </script>
+    <script src="customjQuery.js">
+        </script>
+    <script src="timer.js">
+    	</script>
+</head>
+<body>
+    <form runat="server" id="form1">
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-role="content" style="padding: 15px">
+                <a id="tock" data-role="button" data-transition="fade" data-theme="b" href="#page1" onclick="StartTimer()"><span>Timer</span></a>
+                <a data-role="button" data-transition="fade" data-theme="b" href="#page1" onclick="AddRunner()">Add Runner</a>
+                <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Timer</h3>
+                        <div class="ui-grid-c" id="timer">
+                            <div class="ui-block-a">
+                                <h4>Runner</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <h4>1 mile</h4>
+                            </div>
+                            <div class="ui-block-c">
+                                <h4>2 mile</h4>
+                            </div>
+                            <div class="ui-block-d">
+                                <h4>finish</h4>
+                            </div>
+                            <span id="runner1">
+                                <div class="ui-block-a name">
+                                    <h5>
+                                        <input type="text" id="name1" onchange="nameRunner(1)" />
+                                    </h5>
+                                </div>
+                                <div class="ui-block-b mile1">
+                                    <a data-role="button" data-transition="fade" data-theme="b" href="#page1" onclick="captureTime(1,'mile1')"><span>...</span></a>
+                                </div>
+                                <div class="ui-block-c mile2">
+                                    <a data-role="button" data-transition="fade" data-theme="b" href="#page1" onclick="captureTime(1,'mile2')"><span>...</span></a>
+                                </div>
+                                <div class="ui-block-d mile3">
+                                    <a data-role="button" data-transition="fade" data-theme="b" href="#page1" onclick="captureTime(1,'mile3')"><span>...</span></a>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>Splits</h3>
+                        <div class="ui-grid-c" id="split">
+                            <div class="ui-block-a">
+                                <h4>Runner</h4>
+                            </div>
+                            <div class="ui-block-b">
+                                <h4>1st split</h4>
+                            </div>
+                            <div class="ui-block-c">
+                                <h4>2nd split</h4>
+                            </div>
+                            <div class="ui-block-d">
+                                <h4>3rd split</h4>
+                            </div>
+                            <span id="split1">
+                                <div class="ui-block-a name" style="border: 1px solid black; text-align: center;">
+                                    <h4>Runner</h4>
+                                </div>
+                                <div class="ui-block-b split1" style="border: 1px solid black; text-align: center;">
+                                    <h4>0:00.0</h4>
+                                </div>
+                                <div class="ui-block-c split2" style="border: 1px solid black; text-align: center;">
+                                    <h4>0:00.0</h4>
+                                </div>
+                                <div class="ui-block-d split3" style="border: 1px solid black; text-align: center;">
+                                    <h4>0:00.0</h4>
+                                </div>
+                            </span>
+                        </div>
+                        <a id="email" href="#" onclick="sendEmail(); return false;">Email Results</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        //App custom javascript
+        </script>
+</body>
+</html>
